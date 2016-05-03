@@ -1,8 +1,24 @@
-﻿$apicEMServer = "10.209.31.103"
+﻿$apicEMServer = "10.202.31.103"
 $apicEMUsername = "admin"
 $apicEMPassword = "C1sco12345"
 
 #----------------------------------------------------------------------------
+
+add-type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+
 $ticketURL = "https://{0}/api/v1/ticket" -f $apicEMServer
 $ticketRequest = "{ `"username`": `"" + $apicEMUsername + "`", `"password`": `"" + $apicEMPassword +"`" }" 
 
@@ -35,7 +51,7 @@ $ticket = $result.response.serviceTicket
 
 ForEach ($computer in $Computers) {
     $addresses = Get-IPAddress -HostName $computer.DNSHostName
-    If (!$addresses -or $address.Length -eq 0) {
+    If (!$addresses -or $addresses.Length -eq 0) {
         Continue
     }
 
@@ -60,7 +76,7 @@ ForEach ($computer in $Computers) {
                     $networkDeviceName = $getNetworkDeviceResult.response[0].hostName
                 }
 
-                Write-Host ("IP Address : {0} is located on {1} and connected to interface {2}" -f $address, $networkDeviceName, $hostDevice.connectedInterfaceName)
+                Write-Host ("IP Address : {0} is located on {1} and connected to interface {2}" -f $address, $networkDeviceName, $hostDevice.response[0].connectedInterfaceName)
             }
         } Else {
             Write-Host ("   IP - {0} not found" -f $address)
