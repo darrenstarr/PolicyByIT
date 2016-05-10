@@ -1,0 +1,14 @@
+InstallWindows is a series of scripts that starts with downloaded files from Microsoft (the Windows ISO image) and from VMware (the Tools ISO) and automates the full installation of Windows, two AD servers and a CA with no user intervention.
+
+As always, I'm in the process of learning PowerShell, so I'm pretty much a total newb to it. I'm also learning Windows and am a total newb to that as well. I know there must be may ways to streamline the installation, but for now, I'm opting for functionality over perfection.
+
+There's still a long way to go. I have sorta started the scripts over again and have gotten to the end of instaling a Windows Server as an AD with VMware tools.
+
+I want to add :
+ - Set the time zone to the same as the machine being used to install the image
+ - Make use of PXE boot and a Windows Deployment server instead of booting an ISO
+ - Instead of slipstreaming an autounattend.xml into the ISO, I'd like to provide on through the PXE boot
+ - I'd like to create an object oriented task pattern with logging for all tasks to simplify rollback. This might be a problem in powershell
+ - I'd like to remove all ugly errors and provide proper logs instead.
+
+There is much more to do, but for now, this is the first checkin and I'm going to try making some nifty changes after this.
