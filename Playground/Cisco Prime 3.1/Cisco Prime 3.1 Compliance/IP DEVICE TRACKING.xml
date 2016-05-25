@@ -1,0 +1,81 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_IP_DEVICE_TRACKING_29_4_2016_16_0_39_528">
+    <Title><![CDATA[IP DEVICE TRACKING]]></Title>
+    
+    <CreatedOn><![CDATA[1461945461286]]></CreatedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[cisco]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[ios]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_IP_DEVICE_TRACKING_GLOBAL">
+        <Title><![CDATA[IP DEVICE TRACKING GLOBAL]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of show ip device tracking all must match the expression Global IP Device Tracking for clients .* Enabled]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[IP DEVICE TRACKING IS NOT ON]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[IP DEVICE TRACKING IS NOT ON]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[show ip device tracking all]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[Global IP Device Tracking for clients .* Enabled]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of show ip device tracking all must match the expression Global IP Device Tracking Probe Delay Interval .* 10]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[IP DEVICE TRACKING PROBE DELAY IS NOT 10]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[IP DEVICE TRACKING PROBE DELAY IS NOT 10]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[show ip device tracking all]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[Global IP Device Tracking Probe Delay Interval .* 10]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

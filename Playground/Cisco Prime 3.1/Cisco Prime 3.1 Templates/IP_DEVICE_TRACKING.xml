@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?><ootb-template>
+    <template-metadata name="IP_DEVICE_TRACKING">
+        <template-details>
+            <description/>
+            <author>root</author>
+            <tag-list/><tag-list/>
+        </template-details>
+        <parameter-metadata>
+            <param-group cliName="cli command set" isMandatory="true" name="IP_DEVICE_TRACKING parameters">
+                <description>Parameters for IP_DEVICE_TRACKING</description>
+                <parameter name="IntfName">
+                    <description>IntfName</description>
+                    <default-value label="IntfName">IntfName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="UpIntfName">
+                    <description>UpIntfName</description>
+                    <default-value label="UpIntfName">UpIntfName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="DownIntfName">
+                    <description>DownIntfName</description>
+                    <default-value label="DownIntfName">DownIntfName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="AllIntf">
+                    <description>AllIntf</description>
+                    <default-value label="AllIntf">AllIntf</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="EveryIntf">
+                    <description>EveryIntf</description>
+                    <default-value label="EveryIntf">EveryIntf</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="DeviceName">
+                    <description>DeviceName</description>
+                    <default-value label="DeviceName">DeviceName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="ProductSeries">
+                    <description>ProductSeries</description>
+                    <default-value label="ProductSeries">ProductSeries</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="SysObjectID">
+                    <description>SysObjectID</description>
+                    <default-value label="SysObjectID">SysObjectID</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="IPAddress">
+                    <description>IPAddress</description>
+                    <default-value label="IPAddress">IPAddress</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="SoftwareVersion">
+                    <description>SoftwareVersion</description>
+                    <default-value label="SoftwareVersion">SoftwareVersion</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="SerialNumber">
+                    <description>SerialNumber</description>
+                    <default-value label="SerialNumber">SerialNumber</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="ModelNumber">
+                    <description>ModelNumber</description>
+                    <default-value label="ModelNumber">ModelNumber</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="ImageName">
+                    <description>ImageName</description>
+                    <default-value label="ImageName">ImageName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="ImageVersion">
+                    <description>ImageVersion</description>
+                    <default-value label="ImageVersion">ImageVersion</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="VlanId">
+                    <description>VlanId</description>
+                    <default-value label="VlanId">VlanId</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="VlanName">
+                    <description>VlanName</description>
+                    <default-value label="VlanName">VlanName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="ProductType">
+                    <description>ProductType</description>
+                    <default-value label="ProductType">ProductType</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="ImageFileName">
+                    <description>ImageFileName</description>
+                    <default-value label="ImageFileName">ImageFileName</default-value>
+                    <data-type>DB</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>null</min>
+                        <max>null</max>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+            </param-group>
+        </parameter-metadata>
+    </template-metadata>
+    <config>
+        <device-filtering-details>
+            <family value="Routers,Switches and Hubs">
+                <min-supported-imageversion value=""/>
+            </family>
+        </device-filtering-details>
+        <cli name="cli command set">
+            <clicommand>!
+! IntfName = $IntfName
+! UpIntfName = $UpIntfName
+! DownIntfName = $DownIntfName
+! AllIntf = $AllIntf
+! EveryIntf = $EveryIntf
+! DeviceName = $DeviceName
+! ProductSeries = $ProductSeries
+! SysObjectID = $SysObjectID
+! IPAddress = $IPAddress
+! SoftwareVersion = $SoftwareVersion
+! SerialNumber = $SerialNumber
+! ModelNumber = $ModelNumber
+! ImageName = $ImageName
+! ImageFileName = $ImageFileName
+! ImageVersion = $ImageVersion
+! VlanId = $VlanId
+! VlanName = $VlanName
+! ProductType = $ProductType
+!
+#if ($ModelNumber.matches(".*C3560CG.*") &amp;&amp; $SoftwareVersion.matches("^15.2.*"))
+#foreach ($interfaceName in $IntfName)
+#if ($interfaceName.matches("^GigabitEthernet0\/[0-8]$"))
+Interface $interfaceName
+ ip device tracking maximum 65535
+!
+#end
+#end
+!
+ip device tracking
+ip device tracking probe delay 10
+!
+#end
+
+
+
+
+
+
+
+
+
+
+</clicommand>
+        </cli>
+    </config>
+</ootb-template>

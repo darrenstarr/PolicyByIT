@@ -1,0 +1,104 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_SNMP_4_5_2016_5_57_50_664">
+    <Title><![CDATA[SNMP]]></Title>
+    
+    <CreatedOn><![CDATA[1462334808516]]></CreatedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[cisco]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[ios]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_SNMP_USERS">
+        <Title><![CDATA[SNMP USERS]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of show snmp user must match the expression User name: (adm_apic)]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING SNMP USER adm_apic]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING SNMP USER adm_apic]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[show snmp user]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[User name: (adm_apic)]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of show snmp user must match the expression User name: (adm_prime)]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING SNMP USER adm_prime]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING SNMP USER adm_prime]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[show snmp user]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[User name: (adm_prime)]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Output of show snmp user must match the expression User name: (IseIseBaby)]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING SNMP USER IseIseBaby]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING SNMP USER IseIseBaby]]></Message>
+            </Violation>
+             <DatasetName><![CDATA[show snmp user]]></DatasetName>
+            <Scope>DATASET</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[User name: (IseIseBaby)]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

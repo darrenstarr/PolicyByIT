@@ -1,0 +1,275 @@
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+service sequence-numbers
+service counters max age 5
+service unsupported-transceiver
+no service config
+no service password-recovery
+!
+!
+hostname POD3-SWA-01
+!
+username admin privilege 15 secret cisco
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+logging on
+logging count
+logging rate-limit 10
+logging buffered 2000000
+logging buffered debugging
+logging console informational
+logging monitor debugging
+logging trap debugging
+logging host 10.203.31.107
+logging host 10.209.31.107
+!
+!
+ip device tracking
+ip device tracking probe delay 10
+!
+clock timezone CET 1 0
+clock summer-time CET recurring
+!
+ip arp inspection log-buffer entries 1024
+ip arp inspection log-buffer logs 1024 interval 10
+!
+no ip dhcp snooping information option
+ip dhcp snooping database flash:DHCP-BINDINGS.DB
+ip dhcp snooping
+!
+ip arp inspection vlan 2311,2321
+ip dhcp snooping vlan 2311,2321
+!
+ip domain-lookup
+ip domain-name POD3.LOCAL
+!
+login block-for 180 attempts 3 within 60
+login on-failure log
+!
+!
+!
+vtp mode transparent
+vtp domain POD.LOCAL
+!
+no setup express
+!
+!
+!
+archive
+ log config
+ logging enable
+ logging size 200
+ hidekeys
+ path flash:/ARCHIVE/
+ write-memory
+!
+errdisable recovery cause all
+spanning-tree portfast bpduguard default
+errdisable recovery interval 600
+!
+ip tcp synwait-time 10
+!
+ip ssh time-out 30
+ip ssh logging events
+ip ssh version 2
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+snmp-server view READ iso included
+snmp-server view WRITE iso included
+!
+snmp-server group PRIME v3 priv read READ write WRITE access SNMP-SERVER-ACCESS
+snmp-server group APICEM v3 priv read READ write WRITE access SNMP-SERVER-ACCESS
+!
+snmp-server user adm_prime PRIME v3 auth sha C1sc012345 priv aes 128 C1sc012345
+snmp-server user adm_apic APICEM v3 auth sha C1sc012345 priv aes 128 C1sc012345
+!
+snmp-server system-shutdown
+snmp-server enable traps
+snmp-server host 10.203.31.107 version 3 priv adm_prime
+snmp-server host 10.209.31.107 version 3 priv adm_prime
+snmp ifmib ifindex persist
+!
+!
+!
+banner login ^
+*******************************************************************************
+*                                 INFORMATION                                 *
+* All content of this system and its associated sub-systems are PROPRIETARY   *
+* INFORMATION and remain the sole and exclusive property of this organization.*
+* This system may be accessed and used by authorized personnel only.          *
+* Authorized users may only perform authorized activities and may not exceed  *
+* the limits of such authorization. Disclosure of information found in this   *
+* system for any unauthorized use is *STRICTLY PROHIBITED*. All activities on *
+* this system are subject to monitoring. Intentional misuse of this system    *
+* can result in disciplinary action or criminal prosecution.            v0.0.1*
+*******************************************************************************
+^
+banner motd ^
+v0.0.1
+^
+!
+!
+!
+line con 0
+ privilege level 15
+ logging synchronous
+ exec-timeout 5 0
+ transport preferred none
+ transport output none
+!
+line vty 0 15
+ access-class LINE-VTY-0-4-ACCESS in
+ login local
+ logging synchronous
+ transport input ssh
+ transport preferred none
+ transport output none
+ exec-timeout 5 0
+!
+!
+!
+!
+ntp server 10.203.32.100
+!
+!
+!
+no vstack
+!
+!
+!
+ip access-list standard LINE-VTY-0-4-ACCESS
+ remark *** ACCESS TO THE SWITCH
+ permit 10.192.21.0 0.31.10.255
+ permit 172.16.1.0 0.0.0.255
+ deny any log
+!
+ip access-list standard SNMP-SERVER-ACCESS
+ remark *** ACCESS TO THE SWITCH
+ permit 10.192.21.0 0.31.10.255
+ deny any log
+!
+kron occurrence KO-3M in 3 recurring system-startup
+policy-list EEM-CDP-MNGT-VLAN
+!
+kron occurrence KO-5M in 5 recurring system-startup
+policy-list AUTOINSTALL
+!
+kron policy-list EEM-CDP-MNGT-VLAN
+cli event manager run EEM-CDP-MNGT-VLAN
+!
+kron policy-list AUTOINSTALL
+cli event manager run AUTOINSTALL
+!
+!
+no event manager applet EEM-CDP-MNGT-VLAN
+!
+event manager applet EEM-CDP-MNGT-VLAN
+ event none
+ action 101 cli command "enable"
+ action 102 cli command "show cdp neighbors detail"
+ action 201 foreach LINE $_cli_result "\n"
+ action 211 regexp "^Native V.* ([0-9]([0-9])[0-9][0-9]).*" $LINE junk VLANID PODID
+ action 221 if $_regexp_result eq 1
+ action 301 cli command "enable"
+ action 311 cli command "configure terminal"
+ action 321 cli command "event manager environment EEM_MNGT_VLAN $VLANID"
+ action 322 cli command "event manager environment EEM_POD_ID $PODID"
+ action 379 cli command "end"
+ action 389 end
+ action 399 end
+! REMOVE EEM APPLET
+ action 901 cli command "configure terminal"
+ action 991 cli command "no kron occurrence KO-3M in 3 recurring system-startup"
+ action 992 cli command "no kron policy-list EEM-CDP-MNGT-VLAN"
+ action 993 cli command "end"
+!
+!
+!
+no event manager applet AUTOINSTALL
+!
+event manager applet AUTOINSTALL
+event none maxrun 59
+! SET FILE QUIET
+action 101 cli command "enable"
+action 102 cli command "configure terminal"
+action 103 cli command "file prompt quiet"
+action 104 cli command "end"
+!
+! MAKE DIRECTORY FOR EEM AND ARCHIVE
+action 201 cli command "mkdir EEM"
+action 202 cli command "mkdir ARCHIVE"
+!
+! GET VLAN AND IP ADDRESS
+action 301 cli command "enable"
+action 302 cli command "show ip interface brief"
+action 311 foreach LINE $_cli_result "\n"
+action 321 regexp "^Vlan([0-9]+) .* (([0-9]+\.[0-9]+\.[0-9]+)\.[0-9]+) .* DHCP .*" $LINE junk VLANID IPADR IPGW
+action 331 if $_regexp_result eq 1
+! SETTING UP MNGT INTERFACE
+action 332 cli command "configure terminal"
+action 340 cli command "interface Vlan1"
+action 341 cli command " no ip address"
+action 342 cli command " shutdown"
+action 343 cli command "interface Vlan $EEM_MNGT_VLAN"
+action 344 cli command " ip address $IPADR 255.255.255.0"
+action 345 cli command " no shutdown"
+action 346 cli command "no ip routing"
+action 347 cli command "ip default-gateway $IPGW.1"
+action 349 cli command "end"
+action 389 end
+action 399 end
+!
+! SET EEM DIRECTORY
+action 401 cli command "configure terminal"
+action 402 cli command "event manager directory user policy flash:/EEM/"
+!
+! MAKE VLANS
+action 501 cli command "no vlan 2-4094"
+action 511 cli command "vlan 2301"
+action 512 cli command "name TEST1"
+action 521 cli command "vlan 2311"
+action 522 cli command "name USERS"
+action 531 cli command "vlan 2321"
+action 532 cli command "name TEST3"
+!
+! SETTING UP TRUNK PORTS
+action 601 cli command "interface range GigabitEthernet0/9 - 10"
+action 611 cli command " ip arp inspection trust"
+action 612 cli command " logging event trunk-status"
+action 613 cli command " udld port aggressive"
+action 653 cli command " switchport trunk allowed vlan 2301,2311,2321"
+action 654 cli command " switchport trunk encapsulation dot1q"
+action 656 cli command " switchport mode trunk"
+action 660 cli command " ip dhcp snooping trust"
+action 699 cli command " no shutdown"
+!
+! SETTING UP ACCESS PORTS
+action 701 cli command "interface range GigabitEthernet0/1 - 8"
+action 711 cli command " switchport access vlan 2311"
+action 712 cli command " switchport mode access"
+action 713 cli command " switchport nonegotiate"
+action 714 cli command " spanning-tree portfast"
+!
+! SETTING UP SSH
+action 802 cli command "crypto key generate rsa general-keys modulus 2048"
+!
+! REMOVE EEM APPLET
+action 991 cli command "no kron occurrence KO-5M in 5 recurring system-startup"
+action 992 cli command "no kron policy-list AUTOINSTALL"
+action 993 cli command "end"
+action 994 cli command "copy running-config startup-config"
+action 995 cli command "configure terminal"
+action 999 reload
+!
+end

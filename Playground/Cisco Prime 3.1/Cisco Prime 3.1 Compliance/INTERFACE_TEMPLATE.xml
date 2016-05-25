@@ -1,0 +1,633 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="INTERFACE_TEMPLATE">
+    <Title><![CDATA[INTERFACE_TEMPLATE]]></Title>
+    
+    <CreatedOn><![CDATA[1461944363485]]></CreatedOn>
+    <ModifiedOn><![CDATA[1461945783175]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[cisco]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[ios]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_UPLINK_INTERFACE_TEMPLATE">
+        <Title><![CDATA[UPLINK_INTERFACE_TEMPLATE]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression ^template (.*)$]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>DONT_RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+             <SubmodeRegExp><![CDATA[template UPLINK_INTERFACE_TEMPLATE]]></SubmodeRegExp>
+            <Scope>SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[^template (.*)$]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport trunk encapsulation dot1q]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport trunk encapsulation dot1q]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport trunk encapsulation dot1q]]></Message>
+            <Fix><![CDATA[template UPLINK_INTERFACE_TEMPLATE
+switchport trunk encapsulation dot1q]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport trunk encapsulation dot1q]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must match the expression switchport trunk allowed vlan (.*)$]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport trunk allowed vlan]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport trunk allowed vlan]]></Message>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[switchport trunk allowed vlan (.*)$]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport mode trunk]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport mode trunk]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport mode trunk]]></Message>
+            <Fix><![CDATA[template UPLINK_INTERFACE_TEMPLATE
+switchport mode trunk]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport mode trunk]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string mls qos trust cos]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING mls qos trust cos]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING mls qos trust cos]]></Message>
+            <Fix><![CDATA[template UPLINK_INTERFACE_TEMPLATE
+mls qos trust cos]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[mls qos trust cos]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string ip dhcp snooping trust]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING ip dhcp snooping trust]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING ip dhcp snooping trust]]></Message>
+            <Fix><![CDATA[template UPLINK_INTERFACE_TEMPLATE
+ip dhcp snooping trust]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[ip dhcp snooping trust]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must match the expression srr-queue bandwidth share (.*)$]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING srr-queue bandwidth share]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING srr-queue bandwidth share]]></Message>
+            <Fix><![CDATA[template UPLINK_INTERFACE_TEMPLATE
+srr-queue bandwidth share 1 30 35 5]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[srr-queue bandwidth share (.*)$]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string priority-queue out]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING priority-queue out]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING priority-queue out]]></Message>
+            <Fix><![CDATA[template UPLINK_INTERFACE_TEMPLATE
+priority-queue out]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[priority-queue out]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+      <Rule identifier="_template_USERS_INTERFACE_TEMPLATE">
+        <Title><![CDATA[USERS_INTERFACE_TEMPLATE]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression ^template (.*)$]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>DONT_RAISE_RETURN</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+             <SubmodeRegExp><![CDATA[template USERS_INTERFACE_TEMPLATE]]></SubmodeRegExp>
+            <Scope>SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[^template (.*)$]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string spanning-tree portfast]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING spanning-tree portfast]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING spanning-tree portfast]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+spanning-tree portfast]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[spanning-tree portfast]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string spanning-tree bpduguard enable]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING spanning-tree bpduguard enable]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING spanning-tree bpduguard enable]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+spanning-tree bpduguard enable]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[spanning-tree bpduguard enable]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must match the expression switchport access vlan (.*)$]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport access vlan]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport access vlan]]></Message>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[switchport access vlan (.*)$]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport mode access]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport mode access]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport mode access]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+switchport mode access]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport mode access]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport block unicast]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport block unicast]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport block unicast]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+switchport block unicast]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport block unicast]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport port-security aging time 1]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport port-security aging time 1]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport port-security aging time 1]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+switchport port-security aging time 1]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport port-security aging time 1]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport port-security aging type inactivity]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport port-security aging type inactivity]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport port-security aging type inactivity]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+switchport port-security aging type inactivity]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport port-security aging type inactivity]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string switchport port-security]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING switchport port-security]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING switchport port-security]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+switchport port-security]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[switchport port-security]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string storm-control broadcast level pps 1k]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING storm-control broadcast level pps 1k]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING storm-control broadcast level pps 1k]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+storm-control broadcast level pps 1k]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[storm-control broadcast level pps 1k]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string storm-control multicast level pps 2k]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING  storm-control multicast level pps 2k]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING  storm-control multicast level pps 2k]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+storm-control multicast level pps 2k]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[storm-control multicast level pps 2k]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string storm-control action trap]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING storm-control action trap]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING storm-control action trap]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+storm-control action trap]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[storm-control action trap]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string mls qos trust dscp]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING mls qos trust dscp]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING mls qos trust dscp]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+mls qos trust dscp]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[mls qos trust dscp]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string ip dhcp snooping limit rate 15]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING ip dhcp snooping limit rate 15]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING ip dhcp snooping limit rate 15]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+ip dhcp snooping limit rate 15]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[ip dhcp snooping limit rate 15]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string load-interval 30]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING load-interval 30]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING load-interval 30]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+load-interval 30]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[load-interval 30]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string srr-queue bandwidth share 10 10 60 20]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING srr-queue bandwidth share 10 10 60 20]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING srr-queue bandwidth share 10 10 60 20]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+srr-queue bandwidth share 10 10 60 20]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[srr-queue bandwidth share 10 10 60 20]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Selected Configuration block must contain the string priority-queue out]]></DisplayString>
+            <MatchAction>CONTINUE</MatchAction>
+            <NonMatchAction>RAISE_AND_CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[MISSING priority-queue out]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[MISSING priority-queue out]]></Message>
+            <Fix><![CDATA[template USERS_INTERFACE_TEMPLATE
+priority-queue out]]></Fix>
+            </Violation>
+            <Scope>PREVIOUS_SUBMODE_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[priority-queue out]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

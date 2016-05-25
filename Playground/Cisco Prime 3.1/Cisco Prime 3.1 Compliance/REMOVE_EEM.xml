@@ -1,0 +1,276 @@
+<CustomPolicy xmlns="http://www.cisco.com/nccm/api/schemas/1.1" id="_REMOVE_EEM_29_4_2016_14_46_17_507">
+    <Title><![CDATA[REMOVE_EEM]]></Title>
+    
+    <CreatedOn><![CDATA[1461940999403]]></CreatedOn>
+    <ModifiedOn><![CDATA[1462128487147]]></ModifiedOn>
+    <CreatedUser><![CDATA[admin]]></CreatedUser>
+    <PolicyType><![CDATA[WIZARD]]></PolicyType>
+    <Categories>
+       <Category id="_CCM_USER_DEFINED" type="category">CCM_USER_DEFINED</Category>
+    </Categories>
+    <VersionSelectorRefs>
+      <VersionSelectorRef><![CDATA[cisco]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[ios]]></VersionSelectorRef>
+      <VersionSelectorRef><![CDATA[iosxe]]></VersionSelectorRef>
+    </VersionSelectorRefs>
+    <References>
+      <Reference identifier="Custom">
+        <Source>Custom</Source>
+        <Sections>Custom Sections</Sections>
+        <Versions>Custom Versions</Versions>
+      </Reference>
+    </References>
+    <Rules>
+      <Rule identifier="_EEM">
+        <Title><![CDATA[EEM APPLET]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string event manager applet AUTOINSTALL]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager applet AUTOINSTALL]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager applet AUTOINSTALL]]></Message>
+            <Fix><![CDATA[no event manager applet AUTOINSTALL]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[event manager applet AUTOINSTALL]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string event manager applet EEM-USERS_INTERFACE_TEMPLATE]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager applet EEM-USERS_INTERFACE_TEMPLATE]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager applet EEM-USERS_INTERFACE_TEMPLATE]]></Message>
+            <Fix><![CDATA[no event manager applet EEM-USERS_INTERFACE_TEMPLATE]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[event manager applet EEM-USERS_INTERFACE_TEMPLATE]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string event manager applet EEM-UPLINK_INTERFACE_TEMPLATE]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager applet EEM-UPLINK_INTERFACE_TEMPLATE]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager applet EEM-UPLINK_INTERFACE_TEMPLATE]]></Message>
+            <Fix><![CDATA[no event manager applet EEM-UPLINK_INTERFACE_TEMPLATE]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[event manager applet EEM-UPLINK_INTERFACE_TEMPLATE]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string event manager applet EEM-CDP-MNGT-VLAN]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager applet EEM-CDP-MNGT-VLAN]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager applet EEM-CDP-MNGT-VLAN]]></Message>
+            <Fix><![CDATA[no event manager applet EEM-CDP-MNGT-VLAN]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[event manager applet EEM-CDP-MNGT-VLAN]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must contain the string event manager applet EEM-CLEAN-FLASH]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager applet EEM-CLEAN-FLASH]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager applet EEM-CLEAN-FLASH]]></Message>
+            <Fix><![CDATA[no event manager applet EEM-CLEAN-FLASH]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>CONTAINS</Operator>
+            <Value><![CDATA[event manager applet EEM-CLEAN-FLASH]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+      <Rule identifier="_KRON">
+        <Title><![CDATA[KRON OCCURRENCE]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression ^kron occurrence (.*)$]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND kron occurrence]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND kron occurrence]]></Message>
+            <Fix><![CDATA[no kron occurrence <1.1>]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[^kron occurrence (.*)$]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+      <Rule identifier="_KRON_POLICY_LIST">
+        <Title><![CDATA[KRON POLICY LIST]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression ^kron policy-list (.*)$]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND kron policy-list]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND kron policy-list]]></Message>
+            <Fix><![CDATA[no kron policy-list <1.1>]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[^kron policy-list (.*)$]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+      <Rule identifier="_EVENT_MANAGER_ENVIRONMENT">
+        <Title><![CDATA[EVENT MANAGER ENVIRONMENT]]></Title>
+        <VersionSelectorRefs>
+          <VersionSelectorRef>cisco</VersionSelectorRef>
+          <VersionSelectorRef>ios</VersionSelectorRef>
+          <VersionSelectorRef>iosxe</VersionSelectorRef>
+        </VersionSelectorRefs>
+         <RuleType>RAW_CONFIG</RuleType>
+        <Conditions>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression ^event manager environment EEM_POD_ID (.*)$]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager environment EEM_POD_ID]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager environment EEM_POD_ID]]></Message>
+            <Fix><![CDATA[no event manager environment EEM_POD_ID <1.1>]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[^event manager environment EEM_POD_ID (.*)$]]></Value>
+          </Condition>
+          <Condition>
+            <Type>RAW_CONFIG</Type>
+            <DisplayString><![CDATA[Configuration must match the expression ^event manager environment EEM_MNGT_VLAN (.*)$]]></DisplayString>
+            <MatchAction>RAISE_AND_CONTINUE</MatchAction>
+            <NonMatchAction>CONTINUE</NonMatchAction>
+            <BlockParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </BlockParams>
+            <RegexpParams>
+              <PassCriterion>ALL</PassCriterion>
+              <RaiseViolationForAllInstances>true</RaiseViolationForAllInstances>
+            </RegexpParams>
+            <Severity>3</Severity>
+            <ViolationMessage><![CDATA[FOUND event manager environment EEM_MNGT_VLAN]]></ViolationMessage>
+          <Violation>
+            <Message><![CDATA[FOUND event manager environment EEM_MNGT_VLAN]]></Message>
+            <Fix><![CDATA[no event manager environment EEM_MNGT_VLAN <1.1>]]></Fix>
+            </Violation>
+            <Scope>ALL_CONFIG</Scope>
+            <Operator>MATCHES_EXPRESSION</Operator>
+            <Value><![CDATA[^event manager environment EEM_MNGT_VLAN (.*)$]]></Value>
+          </Condition>
+        </Conditions>
+      </Rule>
+    </Rules>
+</CustomPolicy>

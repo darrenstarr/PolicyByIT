@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?><ootb-template>
+    <template-metadata name="PnP-C3560CG">
+        <template-details>
+            <description/>
+            <author>root</author>
+            <tag-list/><tag-list/>
+        </template-details>
+        <parameter-metadata>
+            <param-group cliName="cli command set" isMandatory="true" name="PnP-C3560CG parameters">
+                <description>Parameters for PnP-C3560CG</description>
+                <parameter name="PODID">
+                    <description>POD ID</description>
+                    <default-value label="Pod number for lab">POD1</default-value>
+                    <default-value>POD2</default-value>
+                    <default-value>POD3</default-value>
+                    <default-value>POD4</default-value>
+                    <default-value>POD5</default-value>
+                    <default-value>POD6</default-value>
+                    <default-value>POD7</default-value>
+                    <default-value>POD8</default-value>
+                    <default-value>POD9</default-value>
+                    <data-type>Dropdown</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <pattern/>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+                <parameter name="SWITCHID">
+                    <description>SWITCH ID</description>
+                    <default-value label="Switch number for lab, and the IP will be the SWITCH ID at the end +100.">1</default-value>
+                    <data-type>Integer</data-type>
+                    <mandatory>true</mandatory>
+                    <isGlobal>false</isGlobal>
+                    <syntax>
+                        <min>1</min>
+                        <max>99</max>
+                        <pattern>[0-9]+</pattern>
+                    </syntax>
+                    <isGlobalVariable>false</isGlobalVariable>
+                </parameter>
+            </param-group>
+        </parameter-metadata>
+    </template-metadata>
+    <config>
+        <device-filtering-details>
+            <family value="Switches and Hubs/Cisco Catalyst 3560-C Series Switches,Switches and Hubs/Cisco Catalyst 3560 Series Switches">
+                <min-supported-imageversion value=""/>
+            </family>
+        </device-filtering-details>
+        <cli name="cli command set">
+            <clicommand>!
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+service sequence-numbers
+service counters max age 5
+service unsupported-transceiver
+no service config
+no service password-recovery
+!
+file prompt quiet
+!
+!
+#if ( $PODID == "POD1" )
+! POD1
+#set ( $PRIME = "10.201.31.107" )
+#set ( $NTP = "10.201.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.201.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.201.1.1" )
+
+#set ( $VLANID = "2101" )
+#set ( $VLANUSERS = "2111" )
+#set ( $VLANMNGTUSERS = "2121" )
+
+#elseif ( $PODID == "POD2" )
+! POD2
+#set ( $PRIME = "10.202.31.107" )
+#set ( $NTP = "10.202.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.202.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.202.1.1" )
+
+#set ( $VLANID = "2201" )
+#set ( $VLANUSERS = "2211" )
+#set ( $VLANMNGTUSERS = "2221" )
+
+#elseif ( $PODID == "POD3" )
+! POD3
+#set ( $PRIME = "10.203.31.107" )
+#set ( $NTP = "10.203.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.203.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.203.1.1" )
+
+#set ( $VLANID = "2301" )
+#set ( $VLANUSERS = "2311" )
+#set ( $VLANMNGTUSERS = "2321" )
+
+#elseif ( $PODID == "POD4" )
+! POD4
+#set ( $PRIME = "10.204.31.107" )
+#set ( $NTP = "10.204.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.204.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.204.1.1" )
+
+#set ( $VLANID = "2401" )
+#set ( $VLANUSERS = "2411" )
+#set ( $VLANMNGTUSERS = "2421" )
+
+#elseif ( $PODID == "POD5" )
+! POD5
+#set ( $PRIME = "10.205.31.107" )
+#set ( $NTP = "10.205.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.205.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.205.1.1" )
+
+#set ( $VLANID = "2501" )
+#set ( $VLANUSERS = "2511" )
+#set ( $VLANMNGTUSERS = "2521" )
+
+#elseif ( $PODID == "POD6" )
+! POD6
+#set ( $PRIME = "10.206.31.107" )
+#set ( $NTP = "10.206.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.206.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.206.1.1" )
+
+#set ( $VLANID = "2601" )
+#set ( $VLANUSERS = "2611" )
+#set ( $VLANMNGTUSERS = "2621" )
+
+#elseif ( $PODID == "POD7" )
+! POD7
+#set ( $PRIME = "10.207.31.107" )
+#set ( $NTP = "10.207.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.207.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.207.1.1" )
+
+#set ( $VLANID = "2701" )
+#set ( $VLANUSERS = "2711" )
+#set ( $VLANMNGTUSERS = "2721" )
+
+#elseif ( $PODID == "POD8" )
+! POD8
+#set ( $PRIME = "10.208.31.107" )
+#set ( $NTP = "10.208.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.208.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.208.1.1" )
+
+#set ( $VLANID = "2801" )
+#set ( $VLANUSERS = "2811" )
+#set ( $VLANMNGTUSERS = "2821" )
+
+#elseif ( $PODID == "POD9" )
+! POD9
+#set ( $PRIME = "10.209.31.107" )
+#set ( $NTP = "10.209.32.100" )
+
+#set ( $IPADR = 100 + $SWITCHID )
+#set ( $IPADR = "10.209.1. $IPADR" )
+#set ( $IPADR = $IPADR.replace(" ","") )
+#set ( $IPGW = "10.209.1.1" )
+
+#set ( $VLANID = "2901" )
+#set ( $VLANUSERS = "2911" )
+#set ( $VLANMNGTUSERS = "2921" )
+
+#end
+
+! POD GLOBAL
+#set ( $ARPINS = "$VLANUSERS, $VLANMNGTUSERS" )
+#set ( $ARPINS =  $ARPINS.replace(" ","") )
+#set ( $DHCPSNOOPING = "$VLANUSERS, $VLANMNGTUSERS" )
+#set ( $DHCPSNOOPING =  $DHCPSNOOPING.replace(" ","") )
+#set ( $HOSTNAME = "$PODID - SWA - $SWITCHID" )
+#set ( $HOSTNAME =  $HOSTNAME.replace(" ","") )
+#set ( $DOMAIN = "$PODID .LOCAL" )
+#set ( $DOMAIN =  $DOMAIN.replace(" ","") )
+
+
+
+!
+hostname $HOSTNAME
+!
+username system privilege 15 secret C1sco12345
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+logging on
+logging count
+logging rate-limit 10
+logging buffered 2000000
+logging buffered debugging
+logging console informational
+logging monitor debugging
+logging trap debugging
+logging host $PRIME
+logging host 10.209.31.107
+!
+!
+ip device tracking
+ip device tracking probe delay 10
+!
+clock timezone CET 1 0
+clock summer-time CET recurring
+!
+ip arp inspection log-buffer entries 1024
+ip arp inspection log-buffer logs 1024 interval 10
+!
+no ip dhcp snooping information option
+ip dhcp snooping database flash:DHCP-BINDINGS.DB
+ip dhcp snooping
+!
+ip arp inspection vlan $ARPINS
+ip dhcp snooping vlan $DHCPSNOOPING
+!
+ip domain-lookup
+ip domain-name $DOMAIN
+!
+login block-for 180 attempts 3 within 60
+login on-failure log
+!
+!
+!
+vtp mode transparent
+vtp domain POD.LOCAL
+!
+no setup express
+!
+!
+!
+archive
+ log config
+ logging enable
+ logging size 200
+ hidekeys
+ path flash:/ARCHIVE/
+ write-memory
+!
+errdisable recovery cause all
+spanning-tree portfast bpduguard default
+errdisable recovery interval 600
+!
+ip tcp synwait-time 10
+!
+ip ssh time-out 30
+ip ssh logging events
+ip ssh version 2
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+snmp-server view READ iso included
+snmp-server view WRITE iso included
+!
+snmp-server group PRIME v3 priv read READ write WRITE access SNMP-SERVER-ACCESS
+snmp-server group APICEM v3 priv read READ write WRITE access SNMP-SERVER-ACCESS
+!
+snmp-server user adm_prime PRIME v3 auth sha C1sc012345 priv aes 128 C1sc012345
+snmp-server user adm_apic APICEM v3 auth sha C1sc012345 priv aes 128 C1sc012345
+!
+snmp-server system-shutdown
+snmp-server enable traps
+snmp-server host $PRIME version 3 priv adm_prime
+snmp-server host 10.209.31.107 version 3 priv adm_prime
+snmp ifmib ifindex persist
+!
+!
+!
+banner login ^
+*******************************************************************************
+*                                 INFORMATION                                 *
+* All content of this system and its associated sub-systems are PROPRIETARY   *
+* INFORMATION and remain the sole and exclusive property of this organization.*
+* This system may be accessed and used by authorized personnel only.          *
+* Authorized users may only perform authorized activities and may not exceed  *
+* the limits of such authorization. Disclosure of information found in this   *
+* system for any unauthorized use is *STRICTLY PROHIBITED*. All activities on *
+* this system are subject to monitoring. Intentional misuse of this system    *
+* can result in disciplinary action or criminal prosecution.            v0.0.1*
+*******************************************************************************
+^
+banner motd ^
+v0.0.1
+^
+!
+!
+!
+line con 0
+ privilege level 15
+ logging synchronous
+ exec-timeout 5 0
+ transport preferred none
+ transport output none
+!
+line vty 0 15
+ access-class LINE-VTY-0-4-ACCESS in
+ login local
+ logging synchronous
+ transport input ssh
+ transport preferred none
+ transport output none
+ exec-timeout 5 0
+!
+!
+event manager directory user policy flash:/EEM/
+!
+!
+ntp server $NTP
+!
+!
+!
+no vstack
+!
+!
+!
+ip access-list standard LINE-VTY-0-4-ACCESS
+ remark *** ACCESS TO THE SWITCH
+ permit 10.192.21.0 0.31.10.255
+ permit 172.16.1.0 0.0.0.255
+ deny any log
+!
+ip access-list standard SNMP-SERVER-ACCESS
+ remark *** ACCESS TO THE SWITCH
+ permit 10.192.21.0 0.31.10.255
+ deny any log
+!
+kron occurrence KO-5M in 5 recurring system-startup
+policy-list AUTOINSTALL
+!
+kron policy-list AUTOINSTALL
+cli event manager run AUTOINSTALL
+!
+event manager applet AUTOINSTALL
+event none maxrun 59
+!
+action 101 cli command "enable"
+!
+! MAKE DIRECTORY FOR EEM AND ARCHIVE
+action 201 cli command "mkdir EEM"
+action 202 cli command "mkdir ARCHIVE"
+!
+! SETTING UP MNGT INTERFACE
+action 332 cli command "configure terminal"
+action 340 cli command "interface Vlan1"
+action 341 cli command " no ip address"
+action 342 cli command " shutdown"
+action 343 cli command "interface Vlan $VLANID"
+action 344 cli command " ip address $IPADR 255.255.255.0"
+action 345 cli command " no shutdown"
+action 346 cli command "no ip routing"
+action 347 cli command "ip default-gateway $IPGW"
+!
+! MAKE VLANS
+action 501 cli command "no vlan 2-4094"
+action 511 cli command "vlan $VLANID"
+action 512 cli command "name TEST1"
+action 521 cli command "vlan $VLANUSERS"
+action 522 cli command "name USERS"
+action 531 cli command "vlan $VLANMNGTUSERS"
+action 532 cli command "name TEST3"
+!
+! SETTING UP TRUNK PORTS
+action 601 cli command "interface range GigabitEthernet0/9 - 10"
+action 611 cli command " ip arp inspection trust"
+action 612 cli command " logging event trunk-status"
+action 613 cli command " udld port aggressive"
+action 653 cli command " switchport trunk allowed vlan $VLANID,$VLANUSERS,$VLANMNGTUSERS"
+action 654 cli command " switchport trunk encapsulation dot1q"
+action 656 cli command " switchport mode trunk"
+action 660 cli command " ip dhcp snooping trust"
+action 699 cli command " no shutdown"
+!
+! SETTING UP ACCESS PORTS
+action 701 cli command "interface range GigabitEthernet0/1 - 8"
+action 711 cli command " switchport access vlan $VLANUSERS"
+action 712 cli command " switchport mode access"
+action 713 cli command " switchport nonegotiate"
+action 714 cli command " spanning-tree portfast"
+!
+! SETTING UP SSH
+action 802 cli command "crypto key generate rsa general-keys modulus 2048"
+!
+! REMOVE EEM APPLET
+action 991 cli command "no kron occurrence KO-5M in 5 recurring system-startup"
+action 992 cli command "no kron policy-list AUTOINSTALL"
+action 993 cli command "end"
+action 994 cli command "copy running-config startup-config"
+!
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+</clicommand>
+        </cli>
+    </config>
+</ootb-template>
